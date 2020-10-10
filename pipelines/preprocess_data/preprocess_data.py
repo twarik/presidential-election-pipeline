@@ -1,4 +1,3 @@
-import argparse
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -15,7 +14,7 @@ def _preprocess_data():
     3. Split the dataset into train and test set
     4. Use np.save to save our dataset to disk so that it can be reused by later components
     '''
-    dataset_path='https://github.com/twarik/presidential-election-pipeline/blob/main/data/president-1976-2016.csv'
+    dataset_path='./president-1976-2016.csv'
     df = pd.read_csv(dataset_path, error_bad_lines=False)
     df.drop(['notes','state_po','candidate', 'office','state','writein','state_ic'], axis = 1,inplace=True )
     df.dropna(inplace=True)
