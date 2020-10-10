@@ -1,7 +1,7 @@
 import argparse
 import joblib
 import numpy as np
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import classification_report
 
 def test_model(x_test, y_test, model_path):
     x_test_data = np.load(x_test)
@@ -10,11 +10,10 @@ def test_model(x_test, y_test, model_path):
     model = joblib.load(model_path)
     y_pred = model.predict(x_test_data)
 
-    err = mean_squared_error(y_test_data, y_pred)
+    report = classification_report(y_test_data, y_pred)
 
     with open('output.txt', 'a') as f:
-        f.write(str(err))
-
+        f.write(str(report))
 
 
 if __name__ == '__main__':
