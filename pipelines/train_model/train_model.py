@@ -1,7 +1,6 @@
 import argparse
 import joblib
 import numpy as np
-#from sklearn.linear_model import SGDRegressor
 from xgboost import XGBRFClassifier
 
 def train_model(x_train, y_train):
