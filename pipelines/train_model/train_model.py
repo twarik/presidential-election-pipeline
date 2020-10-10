@@ -1,13 +1,14 @@
 import argparse
 import joblib
 import numpy as np
-from sklearn.linear_model import SGDRegressor
+#from sklearn.linear_model import SGDRegressor
+from xgboost import XGBRFClassifier
 
 def train_model(x_train, y_train):
     x_train_data = np.load(x_train)
     y_train_data = np.load(y_train)
 
-    model = SGDRegressor(verbose=1)
+    model = XGBRFClassifier()
     model.fit(x_train_data, y_train_data)
 
     joblib.dump(model, 'model.pkl')
