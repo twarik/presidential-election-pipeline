@@ -4,8 +4,8 @@ import numpy as np
 from sklearn.metrics import classification_report
 
 def test_model(x_test, y_test, model_path):
-    x_test_data = np.load(x_test)
-    y_test_data = np.load(y_test)
+    x_test_data = np.load(x_test, allow_pickle=True)
+    y_test_data = np.load(y_test, allow_pickle=True)
 
     model = joblib.load(model_path)
     y_pred = model.predict(x_test_data)
