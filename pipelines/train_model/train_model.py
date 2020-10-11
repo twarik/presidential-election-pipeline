@@ -4,8 +4,8 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 
 def train_model(x_train, y_train):
-    x_train_data = np.load(x_train)
-    y_train_data = np.load(y_train)
+    x_train_data = np.load(x_train, allow_pickle=True)
+    y_train_data = np.load(y_train, allow_pickle=True)
 
     model = LogisticRegression()
     model.fit(x_train_data, y_train_data)
