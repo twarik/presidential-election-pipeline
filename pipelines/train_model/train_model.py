@@ -1,13 +1,13 @@
 import argparse
 import joblib
 import numpy as np
-from xgboost import XGBRFClassifier
+from sklearn.linear_model import LogisticRegression
 
 def train_model(x_train, y_train):
     x_train_data = np.load(x_train)
     y_train_data = np.load(y_train)
 
-    model = XGBRFClassifier()
+    model = LogisticRegression()
     model.fit(x_train_data, y_train_data)
 
     joblib.dump(model, 'model.pkl')
