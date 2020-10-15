@@ -16,7 +16,8 @@ def _preprocess_data():
     3. Split the dataset into train and test set
     4. Use np.save to save our dataset to disk so that it can be reused by later components
     '''
-    dataset_path='./president-1976-2016.csv'
+    #dataset_path='./president-1976-2016.csv'
+    dataset_path='https://raw.githubusercontent.com/HamoyeHQ/03-presidential-election/master/data/president-1976-2016.csv'
     df = pd.read_csv(dataset_path, error_bad_lines=False)
     df.drop(['office','notes','version','writein','state_ic', 'state_cen','state_po','state_fips'], axis = 1, inplace=True)
     df.dropna(inplace=True)
